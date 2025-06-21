@@ -5,18 +5,12 @@ const Navbar = () => {
 
 
     const navItems = <>
-                        <li><a>Item 1</a></li>
-                    <li>
-                        <details>
-                        <summary>Parent</summary>
-                        <ul className="p-2">
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 2</a></li>
-                        </ul>
-                        </details>
-                    </li>
-                    <li><a>Item 3</a></li>
-                        
+                        <li><a>HOME</a></li>
+                        <li><a>CONTACT US</a></li>
+                        <li><a>DASHBOARD</a></li>
+                        <li><a>OUR MENU</a></li>  
+                        <li><a>OUR SHOP</a></li>  
+                        <li><a>CART</a></li>                                                                        
                      </>
 
 
@@ -27,7 +21,7 @@ const Navbar = () => {
     return (
         <>
 
-            <div className="navbar bg-base-100 shadow-sm">
+            <div className="navbar bg-black/[.3] fixed z-50 text-white  shadow-sm">
                 <div className="navbar-start">
                     <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -39,14 +33,17 @@ const Navbar = () => {
                             {navItems}
                     </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">Savory Spot</a>
+                    <a className="btn btn-ghost text-xl flex flex-col items-start leading-none h-full tracking-wider">
+                        <span className=''>Savory Spot</span> 
+                        <span className='tracking-[0.12em]'>Restaurant</span> 
+                    </a>
                 </div>
-                <div className="navbar-center hidden lg:flex">
+                <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {navItems}
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="m-4">
                     <a className="btn">Button</a>
                 </div>
             </div>
