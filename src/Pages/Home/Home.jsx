@@ -3,6 +3,7 @@ import Bannner from './Bannner';
 import SwiperOnline from './SwiperOnline';
 import About from './About';
 import Menu from './Menu';
+import Recommend from './Recommend';
 
 const Home = () => {
     return (
@@ -14,6 +15,8 @@ const Home = () => {
             <About></About>
 
             <Menu></Menu>
+
+            <Recommend></Recommend>
         </div>
     );
 };
