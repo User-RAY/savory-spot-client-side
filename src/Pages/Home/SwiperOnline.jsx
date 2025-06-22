@@ -14,12 +14,15 @@ import slide2 from '../../assets/home/slide2.jpg';
 import slide3 from '../../assets/home/slide3.jpg';
 import slide4 from '../../assets/home/slide4.jpg';
 import slide5 from '../../assets/home/slide5.jpg';
+import SectionTitle from '../Shared/SectionTitle';
 
 
 
 const SwiperOnline = () => {
     return (
         <div className='w-3/4 md:w-3/5 mx-auto my-16'>
+
+            <SectionTitle heading={'ORDER ONLINE'} subheading={'From 11:00am to 10:00pm'}></SectionTitle>
 
             <Swiper
 
