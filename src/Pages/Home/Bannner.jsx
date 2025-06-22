@@ -1,5 +1,6 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import './tumb.css';
 
 
 import img1 from '../../../src/assets/home/01.jpg';
@@ -15,7 +16,7 @@ const Bannner = () => {
     return (
         <div>
 
-             <Carousel>
+             <Carousel >
                 <div>
                     <img src={img1} />
                 </div>
