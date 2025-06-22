@@ -19,7 +19,7 @@ import slide5 from '../../assets/home/slide5.jpg';
 
 const SwiperOnline = () => {
     return (
-        <div className='w-1/2 mx-auto my-16'>
+        <div className='w-3/4 md:w-3/5 mx-auto my-16'>
 
             <Swiper
 

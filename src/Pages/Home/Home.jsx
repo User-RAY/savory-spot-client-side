@@ -1,6 +1,7 @@
 import React from 'react';
 import Bannner from './Bannner';
 import SwiperOnline from './SwiperOnline';
+import About from './About';
 
 const Home = () => {
     return (
@@ -8,6 +9,8 @@ const Home = () => {
             <Bannner></Bannner>
 
             <SwiperOnline></SwiperOnline>
+
+            <About></About>
         </div>
     );
 };
