@@ -4,6 +4,8 @@ import SwiperOnline from './SwiperOnline';
 import About from './About';
 import Menu from './Menu';
 import Recommend from './Recommend';
+import Feature from './Feature';
+import Testimonial from './Testimonial';
 
 const Home = () => {
     return (
@@ -17,6 +19,10 @@ const Home = () => {
             <Menu></Menu>
 
             <Recommend></Recommend>
+
+            <Feature></Feature>
+
+            <Testimonial></Testimonial>
         </div>
     );
 };

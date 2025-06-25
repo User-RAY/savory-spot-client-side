@@ -9,9 +9,9 @@ const Recommend = () => {
         <div className='w-3/4 mx-auto my-8'>
             <SectionTitle heading={'chef recommends'} subheading={'Should Try'}></SectionTitle>
 
-            <div className='flex justify-center items-center gap-2'>
+            <div className='flex justify-center items-center'>
                 <Card image={saladpic} title={'Caeser Salad'} ingredient={'Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.'}></Card>
-                <Card image={saladpic} title={'Caeser Salad'} ingredient={'Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.'}></Card>
+                <Card image={saladpic} title={'Caeser Salad'} ingredient={'Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.'} pos={2}></Card>
                 <Card image={saladpic} title={'Caeser Salad'} ingredient={'Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.'}></Card>                                
             </div>
                    
