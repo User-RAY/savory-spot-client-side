@@ -3,14 +3,14 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
 
-
+const activeLink = ({ isActive }) => isActive ? "text-yellow-400" : "";
 
     const navItems = <>
-                        <li><NavLink to='/'>HOME</NavLink></li>  
+                        <li><NavLink to='/' className={activeLink}>HOME</NavLink></li>  
                         <li><a>CONTACT US</a></li>
                         <li><a>DASHBOARD</a></li>
-                        <li><NavLink to='/menu'>OUR MENU</NavLink></li>  
-                        <li><NavLink to='/shop'>OUR SHOP</NavLink></li> 
+                        <li><NavLink to='/menu' className={activeLink}>OUR MENU</NavLink></li>  
+                        <li><NavLink to='/shop' className={activeLink}>OUR SHOP</NavLink></li> 
                         <li><a>CART</a></li>                                                                        
                      </>
 

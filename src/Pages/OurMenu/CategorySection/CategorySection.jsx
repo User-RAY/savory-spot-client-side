@@ -2,11 +2,11 @@ import React from 'react';
 import DishBanner from '../DishBanner/DishBanner';
 import MenuItem from '../../Shared/MenuItem';
 
-const CategorySection = ({title='', about='', menuItems=[], banner=true }) => {
+const CategorySection = ({title='', about='', menuItems=[], banner=true, imge='' }) => {
     return (
         <div className='my-12'>
             {/* conditional */}
-            {banner ? <DishBanner dish={title} info={about}></DishBanner>  : <></>}
+            {banner ? <DishBanner dish={title} info={about} img={imge}></DishBanner>  : <></>}
             
 
 
