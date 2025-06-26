@@ -18,7 +18,7 @@ const OurMenu = () => {
     return (
         <div className='min-h-[90vh]'>
 
-            <PageBanner title='Our Menu' des='Would you like to try our dish?'></PageBanner>
+            <PageBanner title='Our Menu' des='Would you like to try our dish?' img='/banner3.jpg'></PageBanner>
 
             <SectionTitle heading={"today's offer"} subheading={"Don't Miss"}></SectionTitle>
 

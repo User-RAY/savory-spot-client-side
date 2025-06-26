@@ -10,7 +10,7 @@ const Navbar = () => {
                         <li><a>CONTACT US</a></li>
                         <li><a>DASHBOARD</a></li>
                         <li><NavLink to='/menu'>OUR MENU</NavLink></li>  
-                        <li><a>OUR SHOP</a></li>  
+                        <li><NavLink to='/shop'>OUR SHOP</NavLink></li> 
                         <li><a>CART</a></li>                                                                        
                      </>
 
