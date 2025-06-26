@@ -1,14 +1,15 @@
 import React from 'react';
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
 
 
 
     const navItems = <>
-                        <li><a>HOME</a></li>
+                        <li><NavLink to='/'>HOME</NavLink></li>  
                         <li><a>CONTACT US</a></li>
                         <li><a>DASHBOARD</a></li>
-                        <li><a>OUR MENU</a></li>  
+                        <li><NavLink to='/menu'>OUR MENU</NavLink></li>  
                         <li><a>OUR SHOP</a></li>  
                         <li><a>CART</a></li>                                                                        
                      </>
@@ -20,7 +21,7 @@ const Navbar = () => {
 
     return (
         <>
-
+            
             <div className="navbar bg-black/[.3] fixed z-50 text-white  shadow-sm">
                 <div className="navbar-start">
                     <div className="dropdown">
