@@ -1,8 +1,8 @@
 import React from 'react';
-import MenuBanner from './MenuBanner/MenuBanner';
 import SectionTitle from '../Shared/SectionTitle';
 import CategorySection from './CategorySection/CategorySection';
 import useMenu from '../../hooks/useMenu';
+import PageBanner from '../Shared/PageBanner';
 
 const OurMenu = () => {
 
@@ -18,7 +18,7 @@ const OurMenu = () => {
     return (
         <div className='min-h-[90vh]'>
 
-            <MenuBanner></MenuBanner>
+            <PageBanner title='Our Menu' des='Would you like to try our dish?'></PageBanner>
 
             <SectionTitle heading={"today's offer"} subheading={"Don't Miss"}></SectionTitle>
 
