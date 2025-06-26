@@ -4,7 +4,7 @@ import image from '/featured.jpg'
 
 const Feature = () => {
     return (
-        <div className=" bg-[url('/featured.jpg')] bg-cover bg-center bg-no-repeat">
+        <div className=" bg-[url('/featured.jpg')] bg-cover bg-center bg-no-repeat bg-fixed">
             <div className=" bg-black bg-opacity-50 p-16">
                 <div className="w-3/4 mx-auto">
                     <SectionTitle heading={'from our menu'} subheading={'Check it out'} color={'white'} border={'fff'} ></SectionTitle>
