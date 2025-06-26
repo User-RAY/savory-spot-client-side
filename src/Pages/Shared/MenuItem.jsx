@@ -1,6 +1,6 @@
 
 
-const MenuItem = ({item}) => {
+const MenuItem = ({item={}}) => {
     const {name, image, recipe, price} = item;
 
     return (
