@@ -2,7 +2,7 @@ import React from 'react';
 
 const Card = ({item, pos=1}) => {
 
-    const {image, name, recipe} = item;
+    const {image, name, recipe, price} = item;
 
     return (
         <div className='text-black'>
@@ -13,6 +13,7 @@ const Card = ({item, pos=1}) => {
                     <img
                     src={image}
                     alt="Shoes" />
+                    <p className='bg-blue-950 text-white absolute top-4 right-4 px-4 py-2' >${price}</p>
                 </figure>
                 <div className="card-body justify-center items-center bg-[#F3F3F3]">
                     <h2 className="card-title">{name}</h2>

@@ -10,7 +10,7 @@ const activeLink = ({ isActive }) => isActive ? "text-yellow-400" : "";
                         <li><a>CONTACT US</a></li>
                         <li><a>DASHBOARD</a></li>
                         <li><NavLink to='/menu' className={activeLink}>OUR MENU</NavLink></li>  
-                        <li><NavLink to='/shop' className={activeLink}>OUR SHOP</NavLink></li> 
+                        <li><NavLink to='/shop/desserts' className={activeLink}>OUR SHOP</NavLink></li> 
                         <li><a>CART</a></li>                                                                        
                      </>
 

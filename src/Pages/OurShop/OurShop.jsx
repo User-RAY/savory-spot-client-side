@@ -7,13 +7,23 @@ import 'react-tabs/style/react-tabs.css';
 import useMenu from '../../hooks/useMenu';
 
 import Cards from '../Shared/Cards';
+import { useParams } from 'react-router-dom';
 
 const OurShop = () => {
 
-    const [tabIndex, setTabIndex] = useState(0);
+    window.scrollTo(0, 600);
+
+    const categories = ['desserts', 'pizza', 'salad', 'soup', 'drinks'];
+
+    const {category} = useParams()
+
+    const initialIndex = categories.indexOf(category);
+
+    const [tabIndex, setTabIndex] = useState(initialIndex);
 
 
     const [menudata] = useMenu();
+
 
     const desserts = menudata.filter(d => d.category === 'dessert');
     const pizza = menudata.filter(d => d.category === 'pizza');
@@ -44,6 +54,7 @@ const OurShop = () => {
                             }
                         </div>
                     </TabPanel>
+
                     <TabPanel>
                          <div className='grid grid-cols-3 gap-8  mx-auto mt-28'>
                             {
@@ -71,7 +82,8 @@ const OurShop = () => {
                                 drinks.map((data,index) => <Cards key={data._id} item={data} pos={index+1}></Cards>)
                             }
                         </div>
-                    </TabPanel>                                                         
+                    </TabPanel>   
+
                 </Tabs>
 
 
