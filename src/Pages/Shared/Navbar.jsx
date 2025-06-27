@@ -6,8 +6,8 @@ const Navbar = () => {
 const activeLink = ({ isActive }) => isActive ? "text-yellow-400" : "";
 
     const navItems = <>
-                        <li><NavLink to='/' className={activeLink}>HOME</NavLink></li>  
-                        <li><a>CONTACT US</a></li>
+                        <li><NavLink to='/' className={activeLink}>HOME</NavLink></li> 
+                        <li><NavLink to='/contact' className={activeLink}>CONTACT US</NavLink></li>                           
                         <li><a>DASHBOARD</a></li>
                         <li><NavLink to='/menu' className={activeLink}>OUR MENU</NavLink></li>  
                         <li><NavLink to='/shop/desserts' className={activeLink}>OUR SHOP</NavLink></li> 
