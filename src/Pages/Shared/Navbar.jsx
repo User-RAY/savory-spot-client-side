@@ -1,16 +1,18 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Navbar = () => {
 
-const activeLink = ({ isActive }) => isActive ? "text-yellow-400" : "";
+    const location = useLocation();
+
+const activeLink = ({ isActive }) => isActive  ? "text-yellow-400" : "";
 
     const navItems = <>
                         <li><NavLink to='/' className={activeLink}>HOME</NavLink></li> 
                         <li><NavLink to='/contact' className={activeLink}>CONTACT US</NavLink></li>                           
                         <li><a>DASHBOARD</a></li>
                         <li><NavLink to='/menu' className={activeLink}>OUR MENU</NavLink></li>  
-                        <li><NavLink to='/shop/desserts' className={activeLink}>OUR SHOP</NavLink></li> 
+                        <li><NavLink to='/shop/desserts' className={location.pathname.startsWith('/shop') ? "text-yellow-400" : ""}>OUR SHOP</NavLink></li> 
                         <li><a>CART</a></li>                                                                        
                      </>
 
