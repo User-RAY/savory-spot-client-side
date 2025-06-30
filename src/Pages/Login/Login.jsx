@@ -1,6 +1,26 @@
-import React from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+
 
 const Login = () => {
+
+    const captchaCheck = useRef(null);
+
+    const [disabled, setDisabled] = useState(true);
+
+    useEffect(() => {
+        loadCaptchaEnginge(6);
+    },[])
+
+
+    const handleValidation = () => {
+        const val = captchaCheck.current.value;
+
+        if (validateCaptcha(val)) {
+         setDisabled(false);       
+        }
+        
+    }
 
 
     const handleLogin = (e) => {
@@ -35,17 +55,29 @@ const Login = () => {
                             </label>
                             <input type="email" placeholder="email" name='email' className="input input-bordered w-full" required />
                             </div>
+
                             <div className="form-control">
                             <label className="label flex my-2">
                                 <span className="label-text">Password</span>
                             </label>
                             <input type="password" placeholder="password" name='pass' className="input input-bordered w-full" required />
+                            
                             <label className="label flex mt-2">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
+
                             </div>
+
+                            <div className="form-control">
+                            <label className="label flex my-2">
+                                <LoadCanvasTemplate />
+                            </label>
+                            <input type="text" ref={captchaCheck} placeholder="type here" name='captcha' className="input input-bordered w-full" required />
+                            <button type='button' className='btn btn-xs w-full mt-2 bg-blue-400' onClick={handleValidation}>Validate</button>
+                            </div>
+
                             <div className="form-control mt-6">
-                            <button className="btn bg-[#D1A054] w-full">Login</button>
+                            <button disabled={disabled} type='submit' className="btn bg-[#D1A054] w-full">Login</button>
                             </div>
                         </form>
                     </div>
