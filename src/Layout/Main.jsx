@@ -1,14 +1,19 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Footer from '../Pages/Shared/Footer';
 import Navbar from '../Pages/Shared/Navbar';
 
 const Main = () => {
+
+    const location = useLocation();
+
+    const check = location.pathname.includes('login') || location.pathname.includes('register')    
+
     return (
         <div className='bg-white'>
-            <Navbar></Navbar>
+            {check || <Navbar></Navbar>} 
             <Outlet></Outlet>
-            <Footer></Footer>
+            {check || <Footer></Footer>} 
         </div>
     );
 };
