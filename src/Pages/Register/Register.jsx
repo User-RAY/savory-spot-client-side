@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form"
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Register = () => {
 
@@ -7,9 +9,17 @@ const Register = () => {
         handleSubmit,
         formState: { errors },
     } = useForm()
+
+    const {createUser} = useContext(AuthContext)
     
     const onSubmit = (data) => {
         console.log(data)
+        createUser(data.email, data.password)
+        .then(res => {
+            const currUser = res.user;
+            console.log(currUser);
+            
+        })
     }
 
     return (
@@ -27,7 +37,7 @@ const Register = () => {
                                 <span className="label-text">Name</span>
                             </label>
                             <input type="text" placeholder="Name" {...register("name", { required: true })} name='name' className="input input-bordered w-full"  />
-                            {errors.name && <span className="text-red-500">Name is required</span>}
+                            <div className="min-h-10 mt-1">{errors.name && <span className="text-red-500">Name is required</span>}</div>
                         </div>
 
                         <div className="form-control">
@@ -35,7 +45,7 @@ const Register = () => {
                             <span className="label-text">Email</span>
                         </label>
                         <input type="email" placeholder="email" {...register("email")} name='email' className="input input-bordered w-full" required />
-                        {errors.email && <span className="text-red-500">Email is required</span>}
+                        <div className="min-h-10 mt-1">{errors.email && <span className="text-red-500">Email is required</span>}</div>
                         </div>
 
                         <div className="form-control">
@@ -43,8 +53,10 @@ const Register = () => {
                             <span className="label-text">Password</span>
                         </label>
                         <input type="password" placeholder="password" {...register("password", { required: true, minLength: 6 })} name='password' className="input input-bordered w-full" required />
-                        {errors.password?.type === 'required' && <span className="text-red-500">Password is required</span>}
-                        {errors.password?.type === 'minLength' && <span className="text-red-500">Minimum length 6 is required</span>}
+                        <div className="min-h-10 mt-1">
+                            {errors.password?.type === 'required' && <span className="text-red-500">Password is required</span>}
+                            {errors.password?.type === 'minLength' && <span className="text-red-500">Minimum length 6 is required</span>}
+                        </div>
 
                         </div>
 

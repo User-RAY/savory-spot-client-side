@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink, useLocation } from "react-router-dom";
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Navbar = () => {
 
     const location = useLocation();
 
-const activeLink = ({ isActive }) => isActive  ? "text-yellow-400" : "";
+    const activeLink = ({ isActive }) => isActive  ? "text-yellow-400" : "";
+
+    const {user, logOut} = useContext(AuthContext);
 
     const navItems = <>
                         <li><NavLink to='/' className={activeLink}>HOME</NavLink></li> 
@@ -13,11 +16,16 @@ const activeLink = ({ isActive }) => isActive  ? "text-yellow-400" : "";
                         <li><a>DASHBOARD</a></li>
                         <li><NavLink to='/menu' className={activeLink}>OUR MENU</NavLink></li>  
                         <li><NavLink to='/shop/desserts' className={location.pathname.startsWith('/shop') ? "text-yellow-400" : ""}>OUR SHOP</NavLink></li> 
-                        <li><a>CART</a></li>                                                                        
+                        <li><a>CART</a></li>                                                                      
                      </>
 
 
-
+    const handleLogout = () => {
+        logOut()
+        .then(() => {})
+        .catch(err => console.log(err));
+        
+    }
 
 
 
@@ -47,7 +55,10 @@ const activeLink = ({ isActive }) => isActive  ? "text-yellow-400" : "";
                     </ul>
                 </div>
                 <div className="m-4">
-                    <a className="btn">Button</a>
+                    
+                    {
+                        user ? <><a className="btn" onClick={handleLogout}>Logout</a></> : <><NavLink to='/login' className="btn">Login</NavLink></>
+                    }  
                 </div>
             </div>
             

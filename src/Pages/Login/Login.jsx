@@ -33,7 +33,6 @@ const Login = () => {
         const email = form.email.value;
         const pass = form.pass.value;
 
-        console.log(email, pass);
         signIn(email, pass)
         .then(result => {
             const user = result.user;
