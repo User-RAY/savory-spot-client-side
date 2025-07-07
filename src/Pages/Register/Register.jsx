@@ -10,16 +10,20 @@ const Register = () => {
         formState: { errors },
     } = useForm()
 
-    const {createUser} = useContext(AuthContext)
+    const { setUser, createUser, updateUser} = useContext(AuthContext)
     
     const onSubmit = (data) => {
-        console.log(data)
         createUser(data.email, data.password)
-        .then(res => {
-            const currUser = res.user;
-            console.log(currUser);
-            
+        .then(() => {
+            const updatedata = {displayName: data.name};
+            updateUser(updatedata)
+            .then(() => {
+                setUser((prev) => {
+                    return {...prev, updatedata}
+                }) 
+            })            
         })
+
     }
 
     return (
