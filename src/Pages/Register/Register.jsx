@@ -1,6 +1,9 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form"
 import { AuthContext } from "../../providers/AuthProvider";
+import { NavLink } from "react-router-dom";
+
+import Swal from 'sweetalert2'
 
 const Register = () => {
 
@@ -21,13 +24,20 @@ const Register = () => {
                 setUser((prev) => {
                     return {...prev, updatedata}
                 }) 
+                Swal.fire({
+                    position: "top-start",
+                    icon: "success",
+                    title: "Registration succesfull",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             })            
         })
 
     }
 
     return (
-        <div className='py-60 bg-[url("/authentication.png")]'>
+        <div className='min-h-screen flex justify-center items-center bg-[url("/authentication.png")]'>
 
             <div className='w-[80%] bg-[url("/authentication.png")] shadow-[5px_5px_10px_5px_rgba(0,0,0,0.3)] mx-auto flex justify-center items-center p-12'>
             
@@ -68,6 +78,8 @@ const Register = () => {
                         <button type='submit' className="btn bg-[#D1A054] w-full">Sign up</button>
                         </div>
                     </form>
+                    <p>Already have account? <NavLink to='/login' className='text-blue-500' >Login</NavLink></p>
+
                 </div>
                 
                <div className='w-[50%]'>

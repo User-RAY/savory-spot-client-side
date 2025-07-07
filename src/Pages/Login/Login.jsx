@@ -1,7 +1,9 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../providers/AuthProvider';
+import { NavLink } from "react-router-dom";
 
+import Swal from 'sweetalert2'
 
 const Login = () => {
 
@@ -20,7 +22,14 @@ const Login = () => {
         const val = captchaCheck.current.value;
 
         if (validateCaptcha(val)) {
-         setDisabled(false);       
+            Swal.fire({
+                position: "top-start",
+                icon: "success",
+                title: "Validated",
+                showConfirmButton: false,
+                timer: 1500
+            });
+            setDisabled(false);       
         }
         
     }
@@ -87,6 +96,7 @@ const Login = () => {
                             <button disabled={disabled} type='submit' className="btn bg-[#D1A054] w-full">Login</button>
                             </div>
                         </form>
+                        <p>Do not have account? <NavLink to='/register' className='text-blue-500' >Register</NavLink></p>
                     </div>
 
 
