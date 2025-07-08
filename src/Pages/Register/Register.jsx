@@ -47,7 +47,7 @@ const Register = () => {
                     <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
 
                         <div className="form-control">
-                            <label className="label flex my-2">
+                            <label className="label flex my-1">
                                 <span className="label-text">Name</span>
                             </label>
                             <input type="text" placeholder="Name" {...register("name", { required: true })} name='name' className="input input-bordered w-full"  />
@@ -55,7 +55,7 @@ const Register = () => {
                         </div>
 
                         <div className="form-control">
-                        <label className="label flex my-2">
+                        <label className="label flex my-1">
                             <span className="label-text">Email</span>
                         </label>
                         <input type="email" placeholder="email" {...register("email")} name='email' className="input input-bordered w-full" required />
@@ -63,7 +63,7 @@ const Register = () => {
                         </div>
 
                         <div className="form-control">
-                        <label className="label flex my-2">
+                        <label className="label flex my-1">
                             <span className="label-text">Password</span>
                         </label>
                         <input type="password" placeholder="password" {...register("password", { required: true, minLength: 6 })} name='password' className="input input-bordered w-full" required />
@@ -74,7 +74,7 @@ const Register = () => {
 
                         </div>
 
-                        <div className="form-control mt-6">
+                        <div className="form-control">
                         <button type='submit' className="btn bg-[#D1A054] w-full">Sign up</button>
                         </div>
                     </form>

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../providers/AuthProvider';
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 import Swal from 'sweetalert2'
 
@@ -12,6 +12,11 @@ const Login = () => {
     const [disabled, setDisabled] = useState(true);
 
     const {signIn} = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/'
 
     useEffect(() => {
         loadCaptchaEnginge(6);
@@ -43,9 +48,15 @@ const Login = () => {
         const pass = form.pass.value;
 
         signIn(email, pass)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
+        .then(() => {
+            navigate(from, { replace: true });
+            Swal.fire({
+                position: "top-start",
+                icon: "success",
+                title: "Login succesfull",
+                showConfirmButton: false,
+                timer: 1500
+            });
             
         })
     }
