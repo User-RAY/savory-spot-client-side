@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PageBanner from '../Shared/PageBanner';
 import SectionTitle from '../Shared/SectionTitle';
 
 const Contact = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scroll to the top of the page
+    }, []);
+
     return (
-        <div className='min-h-[80vh]'>
+        <div className=''>
 
             <PageBanner title='Contact us' des='Would you like to try our dish?' img='/banner.jpg'></PageBanner>
 

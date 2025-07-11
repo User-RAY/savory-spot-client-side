@@ -8,6 +8,9 @@ import Feature from './Feature';
 import Testimonial from './Testimonial';
 
 const Home = () => {
+
+    window.scrollTo(0, 10);
+
     return (
         <div>
             <Bannner></Bannner>

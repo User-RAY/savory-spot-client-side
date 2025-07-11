@@ -14,9 +14,10 @@ const OurMenu = () => {
     const soup = menudata.filter(d => d.category === 'soup');
     const offered = menudata.filter(d => d.category === 'offered');    
 
+    window.scrollTo(0, 20);
 
     return (
-        <div className='min-h-[90vh]'>
+        <div className=''>
 
             <PageBanner title='Our Menu' des='Would you like to try our dish?' img='/banner3.jpg'></PageBanner>
 

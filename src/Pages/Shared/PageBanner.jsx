@@ -1,6 +1,9 @@
 import React from 'react';
 
 const PageBanner = ({title='', des='', img=''}) => {
+
+    window.scrollTo(0, 10);
+    
     return (
         <div className='mb-24'>
             <div style={{backgroundImage: `url(${img})`}} className='bg-cover bg-no-repeat bg-center p-32'>
