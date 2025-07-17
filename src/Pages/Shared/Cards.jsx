@@ -1,8 +1,63 @@
-import React from 'react';
+import Swal from 'sweetalert2';
+import useAuthInfo from '../../hooks/useAuthInfo';
+import { useLocation, useNavigate } from 'react-router-dom';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const Card = ({item, pos=1}) => {
 
     const {image, name, recipe, price} = item;
+
+    const navigate = useNavigate();
+
+    const location = useLocation();
+
+
+    const user = useAuthInfo();
+
+    const axiosSecure = useAxiosSecure();
+
+
+    const handleCartItem = (cartItem) => {
+
+        const cartData = {
+            menuId: cartItem._id,
+            email: user.email
+        }
+
+        if (user && user.email) {
+
+            axiosSecure.post('/cart', cartData)
+            .then(res => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: ` ${name} has been added to cart`,
+                    showConfirmButton: false,
+                    timer: 1500
+                    });
+                }
+            })
+            
+            
+        } else {
+            Swal.fire({
+            title: "You are not logged in",
+            text: "Please Log in to Add item in cart",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Log In!"
+            }).then((result) => {
+            if (result.isConfirmed) {
+                navigate('/login', {state: {from: location}});
+            }
+            });
+        }
+        
+    }
+
 
     return (
         <div className='text-black'>
@@ -22,8 +77,8 @@ const Card = ({item, pos=1}) => {
 
                         {
                             pos%2==0 ? <>
-                                <button className="btn bg-[#1F2937] text-[#BB8506] border-b-2 border-[#1F2937] uppercase">Add to Cart</button>
-                            </> : <button className="btn bg-[#E8E8E8] text-[#BB8506] border-0 border-b-2 border-[#BB8506] uppercase">Add to Cart</button>
+                                <button className="btn bg-[#1F2937] text-[#BB8506] border-b-2 border-[#1F2937] uppercase" onClick={() => handleCartItem(item)}>Add to Cart</button>
+                            </> : <button className="btn bg-[#E8E8E8] text-[#BB8506] border-0 border-b-2 border-[#BB8506] uppercase" onClick={() => handleCartItem(item)}>Add to Cart</button>
                         }
 
                     </div>
