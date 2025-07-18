@@ -20,7 +20,6 @@ const OurShop = () => {
 
     const category = location.state?.tabIndex ?? 'desserts';
 
-    console.log(location);
     
 
     const initialIndex = categories.indexOf(category);

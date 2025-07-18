@@ -51,7 +51,6 @@ const Navbar = () => {
         
     }
 
-    console.log(location);
     
 
     return (
