@@ -34,6 +34,9 @@ const SwiperOnline = () => {
                     slidesPerView: 2,
                     },
                     1024: {
+                    slidesPerView: 3,
+                    },
+                    1440: {
                     slidesPerView: 4,
                     },
                 }}
@@ -45,23 +48,23 @@ const SwiperOnline = () => {
                 className="mySwiper"
             >
                 <SwiperSlide> 
-                    <img src={slide1} alt="" />  
+                    <img src={slide1} style={{'min-height': '-webkit-fill-available'}} alt="" />  
                     <h3 className='uppercase absolute bottom-2 text-xl'>Salads</h3>
                 </SwiperSlide>
                 <SwiperSlide> 
-                    <img src={slide2} alt="" /> 
+                    <img src={slide2} style={{'min-height': '-webkit-fill-available'}} alt="" /> 
                     <h3 className='uppercase absolute bottom-2 text-xl'>Pizzas</h3>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={slide3} alt="" />
+                    <img src={slide3} style={{'min-height': '-webkit-fill-available'}} alt="" />
                     <h3 className='uppercase absolute bottom-2 text-xl'>Soups</h3>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={slide4} alt="" />
+                    <img src={slide4} style={{'min-height': '-webkit-fill-available'}} alt="" />
                     <h3 className='uppercase absolute bottom-2 text-xl'>Desserts</h3>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={slide5} alt="" />
+                    <img src={slide5} style={{'min-height': '-webkit-fill-available'}} alt="" />
                     <h3 className='uppercase absolute bottom-2 text-xl'>vegetables</h3>
                 </SwiperSlide>
             </Swiper>
