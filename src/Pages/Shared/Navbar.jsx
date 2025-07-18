@@ -22,7 +22,7 @@ const Navbar = () => {
                         <li><NavLink to='/dashboard'>DASHBOARD</NavLink></li>
                         <li><NavLink to='/menu' className={activeLink}>OUR MENU</NavLink></li>  
                         <li><NavLink to='/shop/desserts' className={location.pathname.startsWith('/shop') ? "text-yellow-400" : ""}>OUR SHOP</NavLink></li> 
-                        <li><NavLink to='/cart' className='items-start'>
+                        <li><NavLink to='/dashboard/cart' className='items-start'>
                             <div>
                                 <div className="indicator">
                                 <svg

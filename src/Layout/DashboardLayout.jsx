@@ -15,7 +15,9 @@ import { BiSolidCalendarEdit } from "react-icons/bi";
 const DashboardLayout = () => {
 
 
-    const role = 'admin'
+    const role = 'admins'
+
+    const activeLink = ({ isActive }) => isActive  ? "text-white bg-black" : "";
 
     const adminlink = <>
                         <li className="mt-8 uppercase"><a><FaHome className="text-xl"/>Admin Home</a></li>
@@ -26,12 +28,12 @@ const DashboardLayout = () => {
                       </>
 
     const userlink = <>
-                        <li className="mt-8 uppercase"><a><FaHome className="text-xl"/>user Home</a></li>
-                        <li className="my-4 uppercase"><a><MdEditCalendar className="text-xl"/>Reservation</a></li>
-                        <li className="uppercase"><a><FaWallet className="text-xl"/>Payment history</a></li>
-                        <li className="my-4 uppercase"><a><FaCartShopping className="text-xl"/>my cart</a></li>
-                        <li className="uppercase"><a><BiSolidCommentCheck className="text-xl"/>add review</a></li>
-                        <li className="my-4 uppercase"><a><BiSolidCalendarEdit  className="text-xl"/>my bookings</a></li>
+                        <li className="mt-8 uppercase"><NavLink to='/dashboard/home' className={activeLink}><FaHome className="text-xl"/>user Home</NavLink></li>
+                        <li className="my-4 uppercase"><NavLink to='/dashboard/reservation' className={activeLink}><MdEditCalendar className="text-xl"/>Reservation</NavLink></li>
+                        <li className="uppercase"><NavLink to='/dashboard/history' className={activeLink}><FaWallet className="text-xl"/>Payment history</NavLink></li>
+                        <li className="my-4 uppercase"><NavLink to='/dashboard/cart' className={activeLink}><FaCartShopping className="text-xl"/>my cart</NavLink></li>
+                        <li className="uppercase"><NavLink to='/dashboard/review' className={activeLink}><BiSolidCommentCheck className="text-xl"/>add review</NavLink></li>
+                        <li className="my-4 uppercase"><NavLink to='/dashboard/bookings' className={activeLink}><BiSolidCalendarEdit  className="text-xl"/>my bookings</NavLink></li>
                       </>
 
 
@@ -53,7 +55,7 @@ const DashboardLayout = () => {
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                     
                     <ul className="menu text-base-content bg-[#D1A054] min-h-full w-80 p-4">
-                        <label htmlFor="my-drawer-2"  className="btn text-black text-2xl w-[10%] ml-auto z-30 drawer-overlay lg:hidden " aria-label="close sidebar">X</label>    
+                        <label htmlFor="my-drawer-2"  className="btn text-black w-[10%] ml-auto z-30 drawer-overlay lg:hidden " aria-label="close sidebar">X</label>    
                         {/* Sidebar content here */}
 
                         <a className="btn btn-ghost p-0 pl-2 text-xl flex flex-col items-start leading-none h-full tracking-wider mt-8">
