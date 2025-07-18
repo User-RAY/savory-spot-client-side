@@ -17,6 +17,9 @@ const Login = () => {
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/'
+    const cat = location.state?.tabIndex || ''
+    console.log(location);
+        console.log('cat',cat);
 
     useEffect(() => {
         loadCaptchaEnginge(6);
@@ -49,7 +52,7 @@ const Login = () => {
 
         signIn(email, pass)
         .then(() => {
-            navigate(from, { replace: true });
+            navigate(from, { replace: true, state: { tabIndex: cat } });
             Swal.fire({
                 position: "top-start",
                 icon: "success",

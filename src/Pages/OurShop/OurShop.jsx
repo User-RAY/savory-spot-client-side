@@ -7,7 +7,7 @@ import 'react-tabs/style/react-tabs.css';
 import useMenu from '../../hooks/useMenu';
 
 import Cards from '../Shared/Cards';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const OurShop = () => {
 
@@ -15,7 +15,13 @@ const OurShop = () => {
 
     const categories = ['desserts', 'pizza', 'salad', 'soup', 'drinks'];
 
-    const {category} = useParams()
+
+    const location = useLocation();
+
+    const category = location.state?.tabIndex ?? 'desserts';
+
+    console.log(location);
+    
 
     const initialIndex = categories.indexOf(category);
 
@@ -50,7 +56,7 @@ const OurShop = () => {
                     <TabPanel>
                         <div className='grid grid-cols-3 gap-8  mx-auto mt-28'>
                             {
-                                desserts.map((data,index) => <Cards key={data._id} item={data} pos={index+1}></Cards>)
+                                desserts.map((data,index) => <Cards key={data._id} item={data} pos={index+1} cat='desserts'></Cards>)
                             }
                         </div>
                     </TabPanel>
@@ -58,28 +64,28 @@ const OurShop = () => {
                     <TabPanel>
                          <div className='grid grid-cols-3 gap-8  mx-auto mt-28'>
                             {
-                                pizza.map((data,index) => <Cards key={data._id} item={data} pos={index+1}></Cards>)
+                                pizza.map((data,index) => <Cards key={data._id} item={data} pos={index+1} cat='pizza'></Cards>)
                             }
                         </div>
                     </TabPanel>
                     <TabPanel>
                          <div className='grid grid-cols-3 gap-8  mx-auto mt-28'>
                             {
-                                salad.map((data,index) => <Cards key={data._id} item={data} pos={index+1}></Cards>)
+                                salad.map((data,index) => <Cards key={data._id} item={data} pos={index+1} cat='salad'></Cards>)
                             }
                         </div>
                     </TabPanel>
                     <TabPanel>
                          <div className='grid grid-cols-3 gap-8  mx-auto mt-28'>
                             {
-                                soup.map((data,index) => <Cards key={data._id} item={data} pos={index+1}></Cards>)
+                                soup.map((data,index) => <Cards key={data._id} item={data} pos={index+1} cat='soup'></Cards>)
                             }
                         </div>
                     </TabPanel>   
                     <TabPanel>
                          <div className='grid grid-cols-3 gap-8  mx-auto mt-28'>
                             {
-                                drinks.map((data,index) => <Cards key={data._id} item={data} pos={index+1}></Cards>)
+                                drinks.map((data,index) => <Cards key={data._id} item={data} pos={index+1} cat='drinks'></Cards>)
                             }
                         </div>
                     </TabPanel>   

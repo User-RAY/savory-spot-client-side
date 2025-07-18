@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import useCart from '../../hooks/useCart';
 
-const Card = ({item, pos=1}) => {
+const Card = ({item, pos=1, cat='desserts'}) => {
 
     const {image, name, recipe, price} = item;
 
@@ -55,7 +55,7 @@ const Card = ({item, pos=1}) => {
             confirmButtonText: "Yes, Log In!"
             }).then((result) => {
             if (result.isConfirmed) {
-                navigate('/login', {state: {from: location}});
+                navigate('/login', {state: {from: location, tabIndex: cat}});
             }
             });
         }
