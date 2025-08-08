@@ -68,7 +68,7 @@ const DashboardLayout = () => {
                         <div style={{'--divider-color': 'white'}} className="divider"></div>
                         <li className="uppercase"><NavLink to='/'><FaHome className="text-xl"/> Home</NavLink></li>
                         <li className="mt-4 uppercase"><NavLink to='/menu'><GiHamburgerMenu className="text-xl" />menu</NavLink></li>
-                        <li className="my-4 uppercase"><NavLink to='/shop/desserts'><RiShoppingBagFill className="text-xl"/>shop</NavLink></li>
+                        <li className="my-4 uppercase"><NavLink to='/shop'><RiShoppingBagFill className="text-xl"/>shop</NavLink></li>
                         <li className="uppercase"><NavLink to='/contact'><IoMdMail className="text-xl"/>contact</NavLink></li>
                     </ul>
                 </div>

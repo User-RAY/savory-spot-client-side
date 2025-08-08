@@ -18,8 +18,7 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || '/'
     const cat = location.state?.tabIndex || ''
-    console.log(location);
-        console.log('cat',cat);
+
 
     useEffect(() => {
         loadCaptchaEnginge(6);

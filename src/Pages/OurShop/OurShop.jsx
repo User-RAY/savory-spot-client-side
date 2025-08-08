@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PageBanner from '../Shared/PageBanner';
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -36,7 +36,7 @@ const OurShop = () => {
     const soup = menudata.filter(d => d.category === 'soup');
     const drinks = menudata.filter(d => d.category === 'drinks');    
     
-
+    
     return (
         <div>
 
