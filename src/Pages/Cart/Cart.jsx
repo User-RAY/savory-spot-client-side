@@ -3,20 +3,22 @@ import useAuthInfo from "../../hooks/useAuthInfo";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useCart from "../../hooks/useCart";
 import SectionTitle from "../Shared/SectionTitle";
+import { FaRegTrashAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 
 const Cart = () => {
 
     window.scrollTo(0, 20);
 
-    const [cart] = useCart();
+    const [cart, refCart] = useCart();
 
 
     const axiosSecure = useAxiosSecure();
 
     const user = useAuthInfo();
 
-    const {data: cartdetails=[]} = useQuery({
+    const {refetch: refCartDetails, data: cartdetails=[]} = useQuery({
         queryKey: ['cartdetails', user?.email],
         queryFn: async () => {
             const res = await axiosSecure.get(`/cartDetails?email=${user.email}`)
@@ -26,7 +28,46 @@ const Cart = () => {
 
 
     
-    const totalPrice = cartdetails.reduce((sum, item) => sum + item.price, 0)
+    const totalPrice = cartdetails.reduce((sum, item) => sum + item.price, 0).toFixed(2)
+
+
+    const handleDeleteCartItem = (id) => {
+
+        Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+        if (result.isConfirmed) {
+
+            axiosSecure.delete(`/cart/${id}`)
+            .then( res => {
+                if (res.data.deletedCount > 0) {
+                    
+                    Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                    });
+                    refCartDetails();
+                    refCart();
+                    
+                }
+
+            })
+
+
+
+        }
+        });
+
+
+        
+    }
 
 
 
@@ -61,8 +102,8 @@ const Cart = () => {
                     <tbody>
 
                         {
-                            cartdetails.map((item, index) => <>
-                                    <tr className="text-black">
+                           cartdetails.length > 0  ? cartdetails.map((item, index) => 
+                                    <tr className="text-black" key={item._id}>
                                         <th>
                                             <p>{index+1}</p>
                                         </th>
@@ -85,10 +126,12 @@ const Cart = () => {
                                         </td>
                                         <td>{item.price}</td>
                                         <th>
-                                        <button className="btn bg-red-600 btn-xs">delete</button>
+                                        <button className="btn bg-red-600 btn-xs text-lg text-white py-4" onClick={()=> handleDeleteCartItem(item._id)}><FaRegTrashAlt /></button>
                                         </th>
                                     </tr>
-                            </>)
+                            ) : <td colspan="5">
+                                    <h2 className="text-black text-xl text-center">No items added. Add Items to Cart from Menu Shop </h2>
+                                </td>
                         }
 
                     </tbody>
