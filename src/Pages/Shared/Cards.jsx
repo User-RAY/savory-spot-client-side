@@ -37,7 +37,8 @@ const Card = ({item, pos=1, cat='desserts'}) => {
                     icon: "success",
                     title: ` ${name} has been added to cart`,
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 1500,
+                    scrollbarPadding: false
                     });
                     refetch();
                 }
