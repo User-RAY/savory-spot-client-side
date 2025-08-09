@@ -40,7 +40,9 @@ const Cart = () => {
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
+        confirmButtonText: "Yes, delete it!",
+        scrollbarPadding: false,
+        heightAuto: false    
         }).then((result) => {
         if (result.isConfirmed) {
 
@@ -51,7 +53,9 @@ const Cart = () => {
                     Swal.fire({
                     title: "Deleted!",
                     text: "Your file has been deleted.",
-                    icon: "success"
+                    icon: "success",
+                    scrollbarPadding: false,
+                    heightAuto: false    
                     });
                     refCartDetails();
                     refCart();
