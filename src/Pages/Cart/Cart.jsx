@@ -133,9 +133,11 @@ const Cart = () => {
                                         <button className="btn bg-red-600 btn-xs text-lg text-white py-4" onClick={()=> handleDeleteCartItem(item._id)}><FaRegTrashAlt /></button>
                                         </th>
                                     </tr>
-                            ) : <td colspan="5">
-                                    <h2 className="text-black text-xl text-center">No items added. Add Items to Cart from Menu Shop </h2>
-                                </td>
+                            ) : <tr>
+                                    <td colSpan="5">
+                                        <h2 className="text-black text-xl text-center">No items added. Add Items to Cart from Menu Shop </h2>
+                                    </td>
+                                 </tr>
                         }
 
                     </tbody>

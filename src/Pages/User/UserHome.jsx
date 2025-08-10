@@ -3,9 +3,15 @@ import { IoCartSharp } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";
 import { MdOutlineDateRange } from "react-icons/md";
 import { FaWallet } from "react-icons/fa";
+import useAuthInfo from "../../hooks/useAuthInfo";
 
 
 const UserHome = () => {
+
+
+    const user = useAuthInfo();
+
+    
     return (
         <div className='w-full h-full'>
             <div className="w-[90%] mx-auto mt-12">
@@ -69,7 +75,7 @@ const UserHome = () => {
                 <div className="flex mt-16">
                     <div className="w-1/2 bg-pink-300 py-12 text-center">
                     <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"  className="w-[30%] rounded-full mx-auto border-2 border-yellow-700 " />
-                        <h2 className="mt-4">Name</h2>
+                        <h2 className="mt-4 uppercase">{user.displayName}</h2>
                     </div>
 
                     <div className="w-1/2 bg-yellow-200 py-12">
