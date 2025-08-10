@@ -17,11 +17,13 @@ import Reservation from "../Pages/User/Reservation";
 import PayHistory from "../Pages/User/PayHistory";
 import AddReview from "../Pages/User/AddReview";
 import MyBookings from "../Pages/User/MyBookings";
+import Error from "../Pages/Error/Error";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <Error></Error>,
     children: [
         {
             path: '/',
