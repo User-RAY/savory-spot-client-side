@@ -21,6 +21,7 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^7.6.0",
     "react-simple-captcha": "^9.3.1",
+    "react-simple-star-rating": "^5.1.7",
     "react-tabs": "^6.1.0",
     "sweetalert2": "^11.22.2",
     "swiper": "^11.2.8"
